@@ -50,19 +50,34 @@ def game():
                     the_board['3'] == the_board['5'] == the_board['7'] != ' ':
                 print_board(the_board)
                 print(f"{turn} won the game!")
-                break
+                input()
+                menu()
 
         # if statement with when it's a draw
         if count == 9:
             print_board(the_board)
             print("It's a draw")
-            break
+            menu()
 
         # change turn after move
         if turn == 'X':
             turn = 'O'
         elif turn == 'O':
             turn = 'X'
+
+
+def menu():
+    restart = str(input("Would you like to play again? (y/n) ")).lower()
+
+    if restart == 'y':
+        for key in the_board:
+            the_board[key] = ' '
+        game()
+    elif restart == 'n':
+        exit()
+    else:
+        print("You can choose only 'y' - (yes) and 'n' - (no)!")
+        menu()
 
 
 game()
