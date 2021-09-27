@@ -38,5 +38,31 @@ def game():
             print("You can't place it here!")
             continue
 
+        # if statement with all wining positions
+        if count >= 5:
+            if the_board['1'] == the_board['2'] == the_board['3'] != ' ' or \
+                    the_board['4'] == the_board['5'] == the_board['6'] != ' ' or \
+                    the_board['7'] == the_board['8'] == the_board['9'] != ' ' or \
+                    the_board['1'] == the_board['4'] == the_board['7'] != ' ' or \
+                    the_board['2'] == the_board['5'] == the_board['8'] != ' ' or \
+                    the_board['3'] == the_board['6'] == the_board['9'] != ' ' or \
+                    the_board['1'] == the_board['5'] == the_board['9'] != ' ' or \
+                    the_board['3'] == the_board['5'] == the_board['7'] != ' ':
+                print_board(the_board)
+                print(f"{turn} won the game!")
+                break
+
+        # if statement with when it's a draw
+        if count == 9:
+            print_board(the_board)
+            print("It's a draw")
+            break
+
+        # change turn after move
+        if turn == 'X':
+            turn = 'O'
+        elif turn == 'O':
+            turn = 'X'
+
 
 game()
